@@ -10,6 +10,7 @@ var colors = [
 var squares = document.querySelectorAll(".grid-item");
 var pickedColor = colors[3];
 var colorDisplay = document.getElementById("colorDisplay");
+var messageDisplay = document.querySelector("#message");
 
 colorDisplay.textContent = pickedColor;
 
@@ -22,9 +23,10 @@ for (let i = 0; i < squares.length; i++) {
     var clickedColor = this.style.backgroundColor;
 
     if (clickedColor === pickedColor) {
-      alert("correct");
+      messageDisplay.textContent = "Correct";
     } else {
-      this.style.backgroundColor = "#232323"
+      this.style.backgroundColor = "#232323";
+      messageDisplay.textContent = "Try Again";
     }
   });
 }
