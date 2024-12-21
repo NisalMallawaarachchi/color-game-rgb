@@ -5,6 +5,8 @@ var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.querySelector("#message");
 var h1 = document.querySelector("h1");
 var resetButton = document.querySelector("#resetbtn");
+var easyBtn = document.querySelector("#easyBtn");
+var hardBtn = document.querySelector("#hardBtn");
 
 colorDisplay.textContent = pickedColor;
 
@@ -78,4 +80,52 @@ resetButton.addEventListener("click", function resetColors() {
   messageDisplay.textContent = "";
   // Reset button text
   resetButton.textContent = "New Colors";
+});
+
+// ------------Easy mode----------
+easyBtn.addEventListener("click", function () {
+  easyBtn.classList.add("selected");
+  hardBtn.classList.remove("selected");
+
+  // Generate 3 random colors
+  colors = generateRandomColors(3);
+  pickedColor = pickColor();
+  colorDisplay.textContent = pickedColor;
+
+  // Update squares
+  for (let index = 0; index < squares.length; index++) {
+    if (colors[index]) {
+      squares[index].style.backgroundColor = colors[index];
+      squares[index].style.display = "block";
+    } else {
+      squares[index].style.display = "none";
+    }
+  }
+
+  // Reset h1 background
+  h1.style.backgroundColor = "steelblue";
+  // Reset message display
+  messageDisplay.textContent = "";
+});
+
+// ------------Hard mode----------
+hardBtn.addEventListener("click", function () {
+  hardBtn.classList.add("selected");
+  easyBtn.classList.remove("selected");
+
+  // Generate 6 random colors
+  colors = generateRandomColors(6);
+  pickedColor = pickColor();
+  colorDisplay.textContent = pickedColor;
+
+  // Update squares
+  for (let index = 0; index < squares.length; index++) {
+    squares[index].style.backgroundColor = colors[index];
+    squares[index].style.display = "block";
+  }
+
+  // Reset h1 background
+  h1.style.backgroundColor = "steelblue";
+  // Reset message display
+  messageDisplay.textContent = "";
 });
