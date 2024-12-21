@@ -1,9 +1,9 @@
-*{
+body {
   box-sizing: border-box;
   background-color: #232323;
 }
 
-#grid-container{
+#grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
@@ -11,16 +11,22 @@
   margin: 0 auto;
 }
 
-.grid-item{
+.grid-item {
   aspect-ratio: 1 / 1;
   border-radius: 20px;
   background-color: purple;
 }
 
-h1{
+h1 {
   color: white;
 }
 
 span {
   color: white;
+}
+
+#reset {
+  background: white;
+  height: 30px;
+  text-align: center;
 }
