@@ -18,7 +18,7 @@ for (let i = 0; i < squares.length; i++) {
     var targetColor = pickedColor; // Normalize picked color
 
     if (clickedColor === targetColor) {
-      messageDisplay.textContent = "Correct"; // Show "Correct" on match
+      messageDisplay.textContent = "Correct..!"; // Show "Correct" on match
       resetButton.textContent = "Play Again";
       changeColors(clickedColor); // Change all squares to the correct color
       h1.style.backgroundColor = clickedColor; // Update header color
