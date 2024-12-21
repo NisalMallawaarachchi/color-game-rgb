@@ -1,4 +1,4 @@
-var colors = generateRandomColors(6);
+var colors = generateRandomColors(6); //Color array
 var squares = document.querySelectorAll(".grid-item");
 var pickedColor = pickColor();
 var colorDisplay = document.getElementById("colorDisplay");
@@ -8,15 +8,15 @@ var resetButton = document.querySelector("#resetbtn");
 
 colorDisplay.textContent = pickedColor;
 
+// Add initial colors to squares
 for (let i = 0; i < squares.length; i++) {
-  // Add initial colors to squares
   squares[i].style.backgroundColor = colors[i];
 
   // Add click listeners to squares
   squares[i].addEventListener("click", function () {
-    var clickedColor = this.style.backgroundColor.trim(); // Normalize clicked color
-    var targetColor = pickedColor.trim(); // Normalize picked color
-  
+    var clickedColor = this.style.backgroundColor; // Normalize clicked color
+    var targetColor = pickedColor; // Normalize picked color
+
     if (clickedColor === targetColor) {
       messageDisplay.textContent = "Correct"; // Show "Correct" on match
       resetButton.textContent = "Play Again";
@@ -27,7 +27,6 @@ for (let i = 0; i < squares.length; i++) {
       messageDisplay.textContent = "Try Again"; // Show "Try Again" for wrong color
     }
   });
-  
 }
 
 // Change all squares to the correct color
