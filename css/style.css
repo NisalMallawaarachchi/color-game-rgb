@@ -1,6 +1,8 @@
 body {
+  font-family: "Poppins", sans-serif;
   box-sizing: border-box;
   background-color: #232323;
+  margin: 0;
 }
 
 #grid-container {
@@ -17,16 +19,28 @@ body {
   background-color: purple;
 }
 
-h1 {
-  color: white;
-}
-
 #reset {
   background: white;
   height: 30px;
   text-align: center;
 }
-
+ 
 .selected {
   background: steelblue;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  margin: 0;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.headerPart {
+  display: block; /* Moves 'The Great' to a new line */
+}
+
+#colorDisplay {
+  font-size: 46px;
 }
