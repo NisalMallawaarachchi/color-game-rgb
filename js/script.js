@@ -10,6 +10,9 @@ var hardBtn = document.querySelector("#hardBtn");
 
 colorDisplay.textContent = pickedColor;
 
+// Reset h1 background
+h1.style.backgroundColor = "steelblue";
+
 // Add initial colors to squares
 for (let i = 0; i < squares.length; i++) {
   squares[i].style.backgroundColor = colors[i];
