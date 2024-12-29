@@ -64,23 +64,36 @@ function randomColor() {
   return "rgb(" + r + ", " + g + ", " + b + ")";
 }
 
-// Reset colors
+//---------Reset colors----------
 resetButton.addEventListener("click", function resetColors() {
+  // Determine the number of colors based on the current mode
+  const numColors = easyBtn.classList.contains("selected") ? 3 : 6;
+
   // Generate all new colors
-  colors = generateRandomColors(6);
-  // Pick a random color from the array
+  colors = generateRandomColors(numColors);
+
+  // Pick a random color from the visible colors
   pickedColor = pickColor();
-  // Change colorDisplay to match picked color
+
+  // Update colorDisplay to match picked color
   colorDisplay.textContent = pickedColor;
-  // Change colors of squares
+
+  // Update squares
   for (let index = 0; index < squares.length; index++) {
-    squares[index].style.backgroundColor = colors[index];
-    squares[index].style.visibility = "visible"; // Ensure squares are visible
+    if (colors[index]) {
+      squares[index].style.backgroundColor = colors[index];
+      squares[index].style.display = "block"; // Ensure squares are visible
+    } else {
+      squares[index].style.display = "none"; // Hide extra squares in easy mode
+    }
   }
+
   // Reset h1 background
   h1.style.backgroundColor = "steelblue";
+
   // Reset message display
   messageDisplay.textContent = "";
+
   // Reset button text
   resetButton.textContent = "New Colors";
 });
